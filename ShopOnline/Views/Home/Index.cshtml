@@ -3,7 +3,8 @@
     ViewBag.Title = "Trang Chủ";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var slides = (List<Model.EF.Slide>)ViewBag.Slides;
-    var listNewProducts = (List<Model.EF.Product>)ViewBag.NewProducts;
+    var listNewProducts3 = (List<Model.EF.Product>)ViewBag.NewProducts;
+    var listNewProducts6 = (List<Model.EF.Product>)ViewBag.NewProducts6;
     var listFeatureProducts = (List<Model.EF.Product>)ViewBag.ListFeatureProducts;
 
 }
@@ -62,6 +63,7 @@
                     </div>
                 </div>
             }
+
         </div>
     </div>
 </section>
@@ -93,7 +95,7 @@
                     <h4>Latest Products</h4>
                     <div class="latest-product__slider owl-carousel">
                         <div class="latest-prdouct__slider__item">
-                            @foreach (var item in listNewProducts)
+                            @foreach (var item in listNewProducts3)
                             {
                                 var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
                                 <a href="@url" class="latest-product__item">
@@ -107,7 +109,23 @@
                                 </a>
                             }
                         </div>
-                    </div>
+
+                        <div class="latest-prdouct__slider__item">
+                            @foreach (var item in listNewProducts6)
+                            {
+                                var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                                <a href="@url" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        @*<img src=@item.Image alt="ListNewProducts">*@
+                                        <img src="~/assets/client/img/latest-product/nezuko.jpg" alt="thumnailchongchay" />
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>@item.Name</h6>
+                                    </div>
+                                </a>
+                            }
+                        </div>
+                    </div>             
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">

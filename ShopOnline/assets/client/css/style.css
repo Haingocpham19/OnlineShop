@@ -1018,6 +1018,12 @@ ol {
 	font-weight: 700;
 }
 
+.latest-product__item__text h6 {
+	color: #252525;
+	margin-bottom: 8px;
+}
+
+
 /*---------------------
   Form BLog
 -----------------------*/
@@ -1681,7 +1687,8 @@ product__item__text h4 del {
 }
 
 .product__details__pic__slider.owl-carousel .owl-item img {
-	width: auto;
+	width: 110px;
+	height: 100px;
 }
 
 .product__details__text h3 {

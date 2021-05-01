@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using Model.Dao;
+using Model.EF;
+using Content = Model.EF.Content;
 
 namespace ShopOnline.Areas.Admin.Controllers
 {
@@ -22,14 +24,22 @@ namespace ShopOnline.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Content model)
+        public ActionResult Create(Content content)
         {
             if (ModelState.IsValid)
             {
-
+                var dao = new ContentDao();
+                long id = dao.Insert(content);
+                if (id > 0)
+                {
+                    return RedirectToAction("Index", "Content");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Thêm bài viết thành công");
+                }
             }
-            SetViewBag();
-            return View();
+            return View("Index");
         }
         [HttpGet]
         public ActionResult Edit(long id)

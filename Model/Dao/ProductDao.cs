@@ -19,9 +19,14 @@ namespace Model.Dao
             return db.Products.OrderByDescending(x => x.CreateDate).Take(top).ToList();
 
         }
+        public List<Product> ListNewProduct6()
+        {
+            return db.Products.OrderByDescending(x => x.CreateDate).Skip(3).Take(3).ToList();
+
+        }
         public List<Product> ListFeatureroduct(int top)
         {
-            return db.Products.Where(x => x.TopHot != null && x.TopHot > DateTime.Now).OrderByDescending(x => x.CreateDate).Take(top).ToList();
+            return db.Products.Where(x => x.TopHot != null).OrderByDescending(x => x.CreateDate).Take(top).ToList();
         }
         public List<Product> ListRelatedroduct(long productID)
         {

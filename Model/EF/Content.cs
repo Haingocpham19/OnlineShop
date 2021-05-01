@@ -9,6 +9,7 @@ namespace Model.EF
     [Table("Content")]
     public partial class Content
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long ID { get; set; }
 
         [StringLength(250)]
@@ -46,7 +47,7 @@ namespace Model.EF
         [StringLength(250)]
         public string MetaDescriptions { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
         public DateTime? TopHot { get; set; }
 

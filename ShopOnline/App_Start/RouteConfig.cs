@@ -13,6 +13,13 @@ namespace ShopOnline
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+           routes.MapRoute(
+           name: "Product Show All",
+           url: "san-pham",
+           defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },
+           namespaces: new[] { "ShopOnline.Controllers" }
+           );
+
             routes.MapRoute(
             name: "Product",
             url: "san-pham/{metatitle}-{cateID}",
@@ -44,6 +51,14 @@ namespace ShopOnline
                 name: "Contact",
                 url: "lien-he",
                 defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "ShopOnline.Controllers" }
+            );
+
+
+            routes.MapRoute(
+                name: "News",
+                url: "tin-tuc",
+                defaults: new { controller = "News", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "ShopOnline.Controllers" }
             );
 

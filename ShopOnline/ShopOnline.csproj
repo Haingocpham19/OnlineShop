@@ -150,6 +150,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -3041,6 +3042,7 @@
     <Content Include="assets\client\js\mixitup.min.js" />
     <Content Include="assets\client\js\owl.carousel.min.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Data\ImagesOfContent\buoi.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -3289,6 +3291,7 @@
     <Content Include="assets\client\sass\_shoping-cart.scss" />
     <Content Include="assets\client\sass\_sidebar.scss" />
     <Content Include="assets\client\sass\_variable.scss" />
+    <Content Include="Areas\Admin\Views\Content\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3321,13 +3324,14 @@
     <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Shared\HeaderCart.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="as\" />
-    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

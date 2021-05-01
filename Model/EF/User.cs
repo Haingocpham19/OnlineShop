@@ -9,7 +9,7 @@
     [Table("User")]
     public partial class User
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long ID { get; set; }
 
         [StringLength(50)]

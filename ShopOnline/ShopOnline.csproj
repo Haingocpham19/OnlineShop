@@ -2973,6 +2973,7 @@
     <Content Include="assets\client\img\categories\cat-3.jpg" />
     <Content Include="assets\client\img\categories\cat-4.jpg" />
     <Content Include="assets\client\img\categories\cat-5.jpg" />
+    <Content Include="assets\client\img\favicon.jpg" />
     <Content Include="assets\client\img\featured\feature-1.jpg" />
     <Content Include="assets\client\img\featured\feature-2.jpg" />
     <Content Include="assets\client\img\featured\feature-3.jpg" />

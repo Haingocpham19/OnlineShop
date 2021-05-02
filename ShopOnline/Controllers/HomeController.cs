@@ -17,7 +17,7 @@ namespace ShopOnline.Controllers
             var productDao = new ProductDao();
             ViewBag.NewProducts = productDao.ListNewProduct(3);
             ViewBag.NewProducts6 = productDao.ListNewProduct6();
-            ViewBag.ListFeatureProducts = productDao.ListFeatureroduct(4);
+            ViewBag.ListFeatureProducts = productDao.ListFeatureroduct(8);
             return View();
         }
         public ActionResult LastNewProduct()

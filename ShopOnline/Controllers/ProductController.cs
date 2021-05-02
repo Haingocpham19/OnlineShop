@@ -10,9 +10,13 @@ namespace ShopOnline.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 9)
         {
-            return View();
+            var dao = new ProductDao();
+            var model = dao.ListAllPaging(searchString, page, pageSize);
+            ViewBag.SearchString = searchString;
+            ViewBag.ListSaleOfProduct = dao.ListSaleOffProduct();
+            return View(model);
         }
         [ChildActionOnly]
         public PartialViewResult ProductCategory()

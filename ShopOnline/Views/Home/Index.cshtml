@@ -107,9 +107,9 @@
                             {
                                 var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
                                 <a href="@url" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
+                                    <div style="width: 110px; height: 110px;" class="latest-product__item__pic">
                                         @*<img src=@item.Image alt="ListNewProducts">*@
-                                        <img src="~/assets/client/img/latest-product/nezuko.jpg" alt="thumnailchongchay" />
+                                        <img style="object-fit: cover;" src="@item.Image" alt="thumnailchongchay" />
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>@item.Name</h6>
@@ -127,16 +127,17 @@
                             {
                                 var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
                                 <a href="@url" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        @*<img src=@item.Image alt="ListNewProducts">*@
-                                        <img src="~/assets/client/img/latest-product/nezuko.jpg" alt="thumnailchongchay" />
+                                    <div style="width: 110px; height: 110px;" class="latest-product__item__pic">
+                                        <img style="object-fit: cover;" src="@item.Image" alt="thumnailchongchay" />
                                     </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>@item.Name</h6>
-                                        <span>@(item.PromotionPrice.HasValue ? (String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.PromotionPrice)) : (
-                                        String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.Price)))</span>
-                                    </div>
-                                </a>
+                                <div class="latest-product__item__text">
+                                    <h6>@item.Name</h6>
+                                    <span>
+                                        @(item.PromotionPrice.HasValue ? (String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.PromotionPrice)) : (
+                                        String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.Price)))
+                                    </span>
+                                </div>
+                            </a>
                             }
                         </div>
                     </div>             

@@ -9,6 +9,7 @@ namespace Model.Dao
 {
     public class ProductDao
     {
+        
         OnlineShopDBContext db = null;
         public ProductDao()
         {

@@ -5,7 +5,7 @@
     regEvents: function () {
         $('btnContinue').off('click').on('click', function () {
             window.location.href = "/";
-        });
+        }); 
         $('btnUpdate').off('click').on('click', function () {
             var listProduct = $('.txtQuantity');
             var cartList = [];
@@ -23,7 +23,6 @@
                 dataType: 'json',
                 type: 'POST',
                 success: function (res) {
-                    console.log(res);
                     if (res.status == true) {
                         window.location.href = "/gio-hang";
                     }

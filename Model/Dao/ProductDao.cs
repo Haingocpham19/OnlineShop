@@ -15,6 +15,7 @@ namespace Model.Dao
         {
             db = new OnlineShopDBContext();
         }
+        
         /// <summary>
         /// list lasted new products slide 1 - take3
         /// </summary>
@@ -35,7 +36,7 @@ namespace Model.Dao
 
         }
         /// <summary>
-        /// list all products on paging
+        /// list all products on paging order by Quantity(client)
         /// </summary>
         /// <param name="searchString"></param>
         /// <param name="page"></param>
@@ -95,6 +96,59 @@ namespace Model.Dao
         public Product ViewDetail(long id)
         {
             return db.Products.Find(id);
+        }
+
+        public long Insert(Product product)
+        {
+            db.Products.Add(product);
+            db.SaveChanges();
+            return product.ID;
+        }
+        public bool Delete(int id)
+        {
+            try
+            {
+                var product = db.Products.Find(id);
+                db.Products.Remove(product);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool Update(Product entity)
+        {
+            try
+            {
+                var product = db.Products.Find(entity.ID);
+                product.Name = entity.Name;
+                product.Descriptions = entity.Descriptions;
+                product.Image = entity.Image;
+                product.Detail = entity.Detail;
+                if (!string.IsNullOrEmpty(product.ModifiedBy))
+                {
+                    product.ModifiedBy = entity.ModifiedBy;
+                }
+                product.ModifiedDate = DateTime.Now;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                //logging
+                return false;
+            }
+
+        }
+        public Product ViewDetail(int id)
+        {
+            return db.Products.Find(id);
+        }
+        public Product GetByID(long id)
+        {
+            return db.Products.SingleOrDefault(x => x.ID == id);
         }
     }
 }

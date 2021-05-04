@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<Model.EF.Content>
+﻿@model PagedList.IPagedList<Model.EF.Product>
 @using PagedList.Mvc
 @{
     ViewBag.Title = "Index";
@@ -7,10 +7,10 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Product List</h6>
+        <h6 class="m-0 font-weight-bold text-primary">User List</h6>
     </div>
     <div class="card-body">
-        @using (Html.BeginForm("Index", "Content", FormMethod.Get))
+        @using (Html.BeginForm("Index", "Product", FormMethod.Get))
         {
             <div class="row">
                 <div class="col-lg-12">
@@ -31,6 +31,7 @@
                         <th>Tên</th>
                         <th>Mô tả</th>
                         <th>Tạo bởi</th>
+                        <th>Ngày tạo</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,6 +52,7 @@
                             <td>@item.Name</td>
                             <td>@item.Descriptions</td>
                             <td>@item.CreateBy</td>
+                            <td>@item.CreateDate</td>
                         </tr>
                     }
                 </tbody>
@@ -59,3 +61,5 @@
         </div>
     </div>
 </div>
+
+

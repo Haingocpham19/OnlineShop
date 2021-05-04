@@ -18,6 +18,7 @@
 
         [StringLength(32)]
         [Display(Name = "Mật Khẩu")]
+
         public string Password { get; set; }
 
         [StringLength(50)]

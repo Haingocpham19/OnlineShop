@@ -181,5 +181,6 @@ namespace Model.EF
                 .Property(e => e.ShipMobile)
                 .IsUnicode(false);
         }
+
     }
 }

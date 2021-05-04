@@ -13,7 +13,11 @@ namespace ShopOnline
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-           routes.MapRoute(
+            // BotDetect requests must not be routed
+            routes.IgnoreRoute("{*botdetect}",
+            new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
+
+            routes.MapRoute(
            name: "Product Show All",
            url: "san-pham",
            defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },

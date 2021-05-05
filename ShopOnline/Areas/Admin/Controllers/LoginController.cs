@@ -30,6 +30,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                     userSession.UserID = user.ID;
 
                     Session.Add(CommonConstants.USER_SESSION, userSession);
+                    ViewBag.Session = CommonConstants.USER_SESSION;
                     return RedirectToAction("Index", "Home");
                 }
                 else if (result == 0)

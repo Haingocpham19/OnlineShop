@@ -11,11 +11,9 @@
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long ID { get; set; }
-
         [StringLength(50)]
         [Display(Name = "Tài Khoản")]
         public string UserName { get; set; }
-
         [StringLength(32)]
         [Display(Name = "Mật Khẩu")]
 

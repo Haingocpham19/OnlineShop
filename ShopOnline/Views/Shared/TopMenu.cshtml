@@ -18,20 +18,28 @@
                     <a href="#"><i class="fa fa-pinterest-p"></i></a>
                 </div>
                 <div class="header__top__right__language">
-                        <img src="~/assets/client/img/language.png" alt="">
-                        <div>English</div>
-                        <span class="arrow_carrot-down"></span>
-                        <ul>
-                            <li><a href="#">Vietnam</a></li>
-                            <li><a href="#">English</a></li>
-                        </ul>
-                    </div>
-            <div class="header__top__right__auth">
-                @foreach (var item in Model)
-                {
-                    <a href="@item.Link" target="@item.Target"><i class="fa fa-user"></i>@item.Text</a>
-                }
-            </div>
+                    <img src="~/assets/client/img/language.png" alt="">
+                    <div>English</div>
+                    <span class="arrow_carrot-down"></span>
+                    <ul>
+                        <li><a href="#">Vietnam</a></li>
+                        <li><a href="#">English</a></li>
+                    </ul>
+                </div>
+                <div class="header__top__right__auth">
+                    @{ var session = (UserLogin)Session[ShopOnline.Common.CommonConstants.USER_SESSION];}
+                    @if (session == null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <a href="@item.Link" target="@item.Target"><i class="fa fa-user"></i>@item.Text</a>
+                        }
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Logout", "Logout", "User", null, new { @class = "fa fa-sign-out" });                                        
+                    }
+                </div>
             </div>
         </div>
     </div>

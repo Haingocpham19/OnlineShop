@@ -12,8 +12,7 @@ namespace ShopOnline.Areas.Admin.Controllers
     public class UserController : BaseController
     {
         // GET: Admin/User
-        
-       
+     
         public ActionResult Index(string searchString,int page=1,int pageSize=3)
         {
             var dao = new UserDao();
@@ -28,6 +27,7 @@ namespace ShopOnline.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        
         public ActionResult Create(User user)
         {
             if (ModelState.IsValid)

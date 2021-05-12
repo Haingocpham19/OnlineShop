@@ -77,6 +77,7 @@
                 <div class="row">
                     @foreach (var item in Model)
                     {
+                        var link = "/tin-tuc/" + item.MetaTitle + "-" + item.ID;
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="blog__item">
                                 <div class="blog__item__pic">
@@ -84,14 +85,26 @@
                                 </div>
                                 <div class="blog__item__text">
                                     <ul>
-                                        <li><i class="fa fa-calendar-o"></i> @String.Format("{0:dddd, MMMM d, yyyy}", @item.CreateDate)</li>
-                                        <li><i class="fa fa-comment-o"></i> 5</li>
+                                        @{
+                                            var createDate = String.Format("{0:dddd, MMMM d, yyyy}", @item.CreateDate);
+                                            var modifiedDate = String.Format("{0:dddd, MMMM d, yyyy}", @item.ModifiedDate);
+                                        }
+                                        @if (item.ModifiedDate == null)
+                                        {
+                                            <li><i class="fa fa-calendar-o"></i>@createDate</li>
+                                        }
+                                        else
+                                        {
+                                            <li><i class="fa fa-calendar-o"></i>@modifiedDate</li>
+
+                                        }
+                                        <li><i class="fa fa-comment-o"></i> 5 </li>
                                     </ul>
                                     <h5><a href="#">@item.Name</a></h5>
                                     <p>
                                         @item.Descriptions
                                     </p>
-                                    <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+                                    <a href="@link" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                                 </div>
                             </div>
                         </div>

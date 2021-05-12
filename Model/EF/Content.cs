@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -10,15 +10,17 @@ namespace Model.EF
     public partial class Content
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
         public long ID { get; set; }
 
         [StringLength(250)]
+        [Display(Name="Tên")]
         public string Name { get; set; }
 
         [StringLength(250)]
         public string MetaTitle { get; set; }
 
-        [StringLength(250)]
+        [StringLength(750)]
         public string Descriptions { get; set; }
 
         [StringLength(250)]

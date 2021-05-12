@@ -21,7 +21,7 @@ namespace ShopOnline.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                var result = dao.Login(model.UserName,Encryptor.MD5Encryption(model.Password));
+                var result = dao.Login(model.UserName,Encryptor.MD5Encryption(model.Password),true);
                 if(result==1)
                 {
                     var user = dao.GetByID(model.UserName);
@@ -45,6 +45,10 @@ namespace ShopOnline.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("", "Mật khẩu không đúng");
                 }
+                else if (result == -3)
+                {
+                    ModelState.AddModelError("", "Tài khoản không có quyền đăng nhập");
+                }
             }
             else
             {
@@ -52,6 +56,11 @@ namespace ShopOnline.Areas.Admin.Controllers
 
             }
             return View("Index");
+        }
+        public ActionResult Logout()
+        {
+            Session[CommonConstants.USER_SESSION] = null;
+            return RedirectToAction("Index","Login","Admin");
         }
     }
 }

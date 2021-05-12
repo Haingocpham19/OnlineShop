@@ -131,7 +131,10 @@ namespace Model.Dao
                 {
                     product.ModifiedBy = entity.ModifiedBy;
                 }
+                product.Quantity = entity.Quantity;
                 product.ModifiedDate = DateTime.Now;
+                product.CategoryID = entity.CategoryID;
+                product.TopHot = entity.TopHot;
                 db.SaveChanges();
                 return true;
             }

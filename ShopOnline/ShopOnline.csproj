@@ -171,6 +171,7 @@
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\UserLogin.cs" />
+    <Compile Include="UserDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\admin\css\sb-admin-2.css" />
@@ -181,6 +182,7 @@
     <Content Include="assets\admin\img\undraw_profile_2.svg" />
     <Content Include="assets\admin\img\undraw_profile_3.svg" />
     <Content Include="assets\admin\img\undraw_rocket.svg" />
+    <Content Include="assets\admin\js\controller\userController.js" />
     <Content Include="assets\admin\js\demo\chart-area-demo.js" />
     <Content Include="assets\admin\js\demo\chart-bar-demo.js" />
     <Content Include="assets\admin\js\demo\chart-pie-demo.js" />
@@ -3001,7 +3003,7 @@
     <Content Include="assets\client\img\latest-product\lp-1.jpg" />
     <Content Include="assets\client\img\latest-product\lp-2.jpg" />
     <Content Include="assets\client\img\latest-product\lp-3.jpg" />
-    <Content Include="assets\client\img\latest-product\nezuko.jpg" />
+    <Content Include="assets\client\img\nezuko.jpg" />
     <Content Include="assets\client\img\logo.png" />
     <Content Include="assets\client\img\payment-item.png" />
     <Content Include="assets\client\img\product\banh-keo-cac-loai\snack-bap-greens-a-vi-thit-nuong-goi-36g.jpg" />
@@ -3310,6 +3312,7 @@
     <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_TopBarMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3346,6 +3349,8 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Shared\Search.cshtml" />
+    <Content Include="Views\News\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3363,6 +3368,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{e85c6116-e371-46b8-811e-03c371405934}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{07f39e52-9a71-4d35-9c31-437e58c4f183}</Project>
       <Name>Model</Name>

@@ -16,5 +16,12 @@ namespace ShopOnline.Controllers
             var model = new ContentDao().ListAllContent();
             return View(model);
         }
+        public ActionResult Detail(long id)
+        {
+            var content = new ContentDao().ViewDetail(id);
+            ViewBag.Category = new CategoryDao().ViewDetailCategory(content.CategoryID.Value);
+            ViewBag.ListAllContent = new ContentDao().ListAllContent();
+            return View(content);
+        }
     }
 }

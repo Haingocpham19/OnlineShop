@@ -7,6 +7,9 @@
 @section header{
     Danh sách người dùng
 }
+@section jsFooter{
+    <script src="~/assets/admin/js/controller/userController.js"></script>
+}
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">@Html.ActionLink("Thêm","Create","User",null,new { @class = "fa fa-user-plus" } )</h6>
@@ -53,7 +56,7 @@
                             <td>@item.UserName</td>
                             <td>@item.Name</td>
                             <td>@item.Email</td>
-                            <td>@(item.Status?"Kích hoạt":"Khóa")</td>
+                            <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status?"Kích hoạt":"Khóa")</a></td>
                         </tr>
                     }
                 </tbody>

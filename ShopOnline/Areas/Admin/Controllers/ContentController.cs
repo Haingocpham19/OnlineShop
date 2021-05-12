@@ -47,21 +47,10 @@ namespace ShopOnline.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(long id)
         {
-            var dao = new ContentDao();
-            var content = dao.GetById(id);
-            SetViewBag(content.CategoryID);
-            return View();
+            var content = new ContentDao().ViewDetail(id);
+            return View(content);
         }
-        [HttpPost]
-        public ActionResult Edit(Content model)
-        {
-            if (ModelState.IsValid)
-            {
 
-            }
-            SetViewBag(); 
-            return View();
-        }
         [HttpDelete]
         public ActionResult Delete(int id)
         {
@@ -73,5 +62,25 @@ namespace ShopOnline.Areas.Admin.Controllers
             var dao = new CategoryDao();
             ViewBag.CategoryID = new SelectList(dao.ListAll(), "ID", "Name", selectedId);
         }
+        [HttpPost,ValidateInput(false)]
+        public ActionResult Edit(Content content)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new ContentDao();
+                var result = dao.Update(content);
+                if (result)
+                {
+                    return RedirectToAction("Index", "Content");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhật thành công");
+                }
+            }
+            return View("Index");
+        }
+      
     }
+
 }

@@ -16,17 +16,16 @@ namespace Model.Dao
         {
             db = new OnlineShopDBContext();
         }
-        public IEnumerable<User> ListAllPaging(string searchString, int page, int pageSize)
+        public IEnumerable<User> ListAllPaging(string searchString,int page,int pageSize)
         {
             IQueryable<User> model = db.Users;
             if (!string.IsNullOrEmpty(searchString))
             {
                 model = model.Where(x => x.UserName.Contains(searchString) || x.Name.Contains(searchString));
             }
-            return model.OrderByDescending(x => x.CreateDate).ToPagedList(page, pageSize);
+            return model.OrderByDescending(x => x.CreateDate).ToPagedList(page,pageSize);
         }
-        public long Insert(User entity)
-        {
+        public long Insert(User entity){
             db.Users.Add(entity);
             db.SaveChanges();
             return entity.ID;
@@ -48,12 +47,12 @@ namespace Model.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch(Exception)
             {
                 //logging
                 return false;
             }
-
+           
         }
         public bool Delete(int id)
         {
@@ -64,7 +63,7 @@ namespace Model.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch(Exception )
             {
                 return false;
             }
@@ -75,9 +74,9 @@ namespace Model.Dao
         }
         public User GetByID(string userName)
         {
-            return db.Users.SingleOrDefault(x => x.UserName == userName);
+            return db.Users.SingleOrDefault(x=>x.UserName==userName);
         }
-        public int Login(string userName, string passWord, bool isLoginAdmin = false)
+        public int Login(string userName,string passWord,bool isLoginAdmin=false)
         {
             var result = db.Users.SingleOrDefault(x => x.UserName == userName);
             if (result == null)
@@ -86,7 +85,7 @@ namespace Model.Dao
             }
             else
             {
-                if (isLoginAdmin == true)
+                if(isLoginAdmin == true)
                 {
                     if (result.GroupID == CommonConstants.ADMIN_GROUP || result.GroupID == CommonConstants.MOD_GROUP)
                     {
@@ -121,7 +120,7 @@ namespace Model.Dao
                             return -2;
                     }
                 }
-
+                    
             }
         }
         public bool CheckUserName(string userName)

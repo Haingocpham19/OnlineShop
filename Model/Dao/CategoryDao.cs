@@ -22,5 +22,9 @@ namespace Model.Dao
         {
             return db.ProductCategories.Find(id);
         }
+        public Category ViewDetailCategory(long id)
+        {
+            return db.Categories.Find(id);
+        }
     }
 }

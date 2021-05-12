@@ -23,8 +23,14 @@ namespace ShopOnline
            defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },
            namespaces: new[] { "ShopOnline.Controllers" }
            );
+            routes.MapRoute(
+              name: "News Detail",
+              url: "tin-tuc/{metatitle}-{id}",
+              defaults: new { controller = "News", action = "Detail", id = UrlParameter.Optional },
+              namespaces: new[] { "ShopOnline.Controllers" }
+              );
 
-          routes.MapRoute(
+            routes.MapRoute(
           name: "Register",
           url: "dang-ky",
           defaults: new { controller = "User", action = "Register", id = UrlParameter.Optional },
@@ -79,6 +85,7 @@ namespace ShopOnline
                 defaults: new { controller = "News", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "ShopOnline.Controllers" }
             );
+
 
             routes.MapRoute(
                 name: "Default",

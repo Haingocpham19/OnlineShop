@@ -24,6 +24,7 @@ namespace ShopOnline.Controllers
             var model = new ProductCategoryDao().ListAll();
             return PartialView(model);
         }
+   
         public ActionResult Category(long cateID, int page = 1, int pageSize = 2)
         {
 

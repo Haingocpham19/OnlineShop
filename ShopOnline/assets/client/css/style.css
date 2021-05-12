@@ -584,6 +584,7 @@ ol {
 }
 
 .hero.hero-normal .hero__search {
+
 	margin-bottom: 0;
 }
 
@@ -762,7 +763,7 @@ ol {
 	height: 270px;
 	position: relative;
 }
-
+	
 .categories__item h5 {
 	position: absolute;
 	left: 0;

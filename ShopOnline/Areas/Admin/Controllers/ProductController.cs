@@ -51,13 +51,12 @@ namespace ShopOnline.Areas.Admin.Controllers
             return View(user);
         }
         [HttpPost]
-        public ActionResult Edit(Product model)
+        public ActionResult Edit(Product product)
         {
             if (ModelState.IsValid)
             {
                 var dao = new ProductDao();
-           
-                var result = dao.Update(model);
+                var result = dao.Update(product);
                 if (result)
                 {
                     return RedirectToAction("Index", "Product");

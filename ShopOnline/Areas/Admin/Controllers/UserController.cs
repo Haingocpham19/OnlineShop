@@ -12,8 +12,8 @@ namespace ShopOnline.Areas.Admin.Controllers
     public class UserController : BaseController
     {
         // GET: Admin/User
-     
-        public ActionResult Index(string searchString,int page=1,int pageSize=3)
+
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 3)
         {
             var dao = new UserDao();
             var model = dao.ListAllPaging(searchString, page, pageSize);
@@ -27,7 +27,7 @@ namespace ShopOnline.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        
+
         public ActionResult Create(User user)
         {
             if (ModelState.IsValid)
@@ -62,7 +62,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                 {
                     var encryptedMD5pas = Encryptor.MD5Encryption(user.Password);
                     user.Password = encryptedMD5pas;
-                }    
+                }
                 var result = dao.Update(user);
                 if (result)
                 {
@@ -80,6 +80,15 @@ namespace ShopOnline.Areas.Admin.Controllers
         {
             new UserDao().Delete(id);
             return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public JsonResult ChangeStatus(long id)
+        {
+            var result = new UserDao().ChangeStatus(id);
+            return Json(new
+            {
+                status = result
+            });
         }
     }
 }

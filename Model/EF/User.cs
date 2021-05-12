@@ -18,6 +18,8 @@
         [Display(Name = "Mật Khẩu")]
 
         public string Password { get; set; }
+        [StringLength(20)]
+        public string GroupID { get; set; }
 
         [StringLength(50)]
         [Display(Name = "Tên người dùng")]

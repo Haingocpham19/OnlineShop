@@ -26,9 +26,32 @@ namespace Model.Dao
         }
         public long Insert(Content content)
         {
+            content.CreateDate = DateTime.Now;
             db.Contents.Add(content);
             db.SaveChanges();
             return content.ID;
+        }
+        public bool Update(Content entity)
+        {
+            try
+            {
+                var content = db.Contents.Find(entity.ID);
+                content.ModifiedDate = DateTime.Now;
+                content.Name = entity.Name;
+                content.Detail = entity.Detail;
+                content.MetaTitle = entity.MetaTitle;
+                content.Descriptions = entity.Descriptions;
+                content.ModifiedBy = entity.ModifiedBy;
+                content.Tags = entity.Tags;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                //logging
+                return false;
+            }
+
         }
         public bool Delete(int id)
         {
@@ -52,7 +75,9 @@ namespace Model.Dao
         {
             return db.Contents.OrderByDescending(x => x.CreateDate).ToList();
         }
-
-     
+        public Content ViewDetail(long id)
+        {
+            return db.Contents.Find(id);
+        }
     }
 }

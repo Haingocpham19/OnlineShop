@@ -1,8 +1,19 @@
 ﻿@model List<ShopOnline.Models.CartItem>
+@{
+    int total;
+    if (Session["TotalPrice"] != null)
+    {
+        total = (int)Session["TotalPrice"];
+    }
+    else
+    {
+        total = 0;
+    }
+}
 <div class="header__cart">
     <ul>
         <li><a href="#"><i class="fa fa-heart"></i> <span></span></a></li>
         <li><a href="/gio-hang"><i class="fa fa-shopping-bag"></i> <span>@Model.Count</span></a></li>
     </ul>
-    <div class="header__cart__price">item: <span>$150.00</span></div>
+    <div class="header__cart__price">item: <span>@total</span><span>đ</span></div>
 </div>

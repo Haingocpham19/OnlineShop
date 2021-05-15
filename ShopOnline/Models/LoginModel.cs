@@ -9,10 +9,13 @@ namespace ShopOnline.Models
     public class LoginModel
     {
         [Key]
+        [Display(Name ="Tên đăng nhập")]
         [Required(ErrorMessage = "Mời nhập user name")]
         public string UserName { set; get; }
+        [Display(Name = "Tên đăng nhập")]
         [Required(ErrorMessage = "Mời nhập password")]
         public string Password { set; get; }
+        [Display(Name = "Ghi nhớ!")]
         public bool RememberMe { set; get; }
     }
 }

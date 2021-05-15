@@ -97,7 +97,8 @@ namespace Model.Dao
         {
             return db.Products.Find(id);
         }
-
+       
+        
         public long Insert(Product product)
         {
             db.Products.Add(product);

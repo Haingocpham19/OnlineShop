@@ -22,5 +22,9 @@ namespace Model.Dao
         {
             return db.ProductCategories.Find(id);
         }
+        public List<ProductCategory> ListAllProductCategory()
+        {
+            return db.ProductCategories.Where(x => x.Status == true).ToList();
+        }
     }
 }

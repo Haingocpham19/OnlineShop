@@ -152,6 +152,7 @@
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Models\LoginModel.cs" />
@@ -168,10 +169,10 @@
     </Compile>
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\UserLogin.cs" />
-    <Compile Include="UserDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\admin\css\sb-admin-2.css" />
@@ -3049,7 +3050,7 @@
     <Content Include="assets\client\img\product\thuc-pham-so-che\canh-du-du-xuong-heo-co-thit-khay-400g.jpg" />
     <Content Include="assets\client\img\product\thuc-pham-so-che\canh-khoai-mo-thit-xay-khay-400g.jpg" />
     <Content Include="assets\client\js\bootstrap.min.js" />
-    <Content Include="assets\client\js\controller\cartController.js" />
+    <Content Include="assets\client\js\controller\cartControl.js" />
     <Content Include="assets\client\js\jquery-3.3.1.min.js" />
     <Content Include="assets\client\js\jquery-ui.min.js" />
     <Content Include="assets\client\js\jquery.nice-select.min.js" />
@@ -3313,6 +3314,8 @@
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_TopBarMenu.cshtml" />
     <Content Include="Areas\Admin\Views\Content\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\ViewDetail.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3351,6 +3354,8 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Shared\Search.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />
+    <Content Include="Views\Cart\Payment.cshtml" />
+    <Content Include="Views\Cart\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

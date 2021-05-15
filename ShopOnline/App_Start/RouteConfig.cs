@@ -31,16 +31,24 @@ namespace ShopOnline
               );
 
             routes.MapRoute(
-          name: "Register",
-          url: "dang-ky",
-          defaults: new { controller = "User", action = "Register", id = UrlParameter.Optional },
-          namespaces: new[] { "ShopOnline.Controllers" }
-          );
-
-            routes.MapRoute(
            name: "Login",
            url: "dang-nhap",
            defaults: new { controller = "User", action = "Login", id = UrlParameter.Optional },
+           namespaces: new[] { "ShopOnline.Controllers" }
+           );
+
+
+           routes.MapRoute(
+           name: "Register",
+           url: "dang-ky-thanh-vien",
+           defaults: new { controller = "User", action = "Register", id = UrlParameter.Optional },
+           namespaces: new[] { "ShopOnline.Controllers" }
+           );
+
+            routes.MapRoute(
+           name: "Payment Success",
+           url: "hoan-thanh",
+           defaults: new { controller = "Cart", action = "Success", id = UrlParameter.Optional },
            namespaces: new[] { "ShopOnline.Controllers" }
            );
 

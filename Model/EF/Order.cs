@@ -27,6 +27,7 @@ namespace Model.EF
         [StringLength(50)]
         public string ShipEmail { get; set; }
 
+        public long TotalPrice { get; set; }
         public int? Status { get; set; }
     }
 }

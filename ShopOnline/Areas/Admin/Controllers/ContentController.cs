@@ -26,7 +26,7 @@ namespace ShopOnline.Areas.Admin.Controllers
             SetViewBag();
             return View();
         }
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Create(Content content)
         {
             if (ModelState.IsValid)

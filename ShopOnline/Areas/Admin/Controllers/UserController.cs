@@ -38,6 +38,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                 long id = dao.Insert(user);
                 if (id > 0)
                 {
+                    SetAlert("Thêm user thành công", "success");
                     return RedirectToAction("Index", "User");
                 }
                 else
@@ -66,11 +67,12 @@ namespace ShopOnline.Areas.Admin.Controllers
                 var result = dao.Update(user);
                 if (result)
                 {
+                    SetAlert("Sửa user thành công", "success");
                     return RedirectToAction("Index", "User");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật thành công");
+                    ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
             return View("Index");

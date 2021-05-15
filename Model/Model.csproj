@@ -60,6 +60,8 @@
     <Compile Include="Dao\ContentDao.cs" />
     <Compile Include="Dao\Footer.cs" />
     <Compile Include="Dao\MenuDao.cs" />
+    <Compile Include="Dao\OrderDao.cs" />
+    <Compile Include="Dao\OrderDetailDao.cs" />
     <Compile Include="Dao\ProductCategory.cs" />
     <Compile Include="Dao\ProductDao.cs" />
     <Compile Include="Dao\SlideDao.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="EF\Tag.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="EF\UserGroup.cs" />
+    <Compile Include="ViewModel\OrderViewdetailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -39,7 +39,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm bài viết thành công");
+                    ModelState.AddModelError("", "Thêm sản phẩm thành công");
                 }
             }
             return View("Index");
@@ -76,8 +76,8 @@ namespace ShopOnline.Areas.Admin.Controllers
         }
         public void SetViewBag(long? selectedId = null)
         {
-            var dao = new CategoryDao();
-            ViewBag.CategoryID = new SelectList(dao.ListAll(), "ID", "Name", selectedId);
+            var dao = new ProductCategoryDao();
+            ViewBag.ProductCategories = new SelectList(dao.ListAllProductCategory(), "ID", "Name", selectedId);
         }
 
     }

@@ -19,8 +19,10 @@ namespace ShopOnline.Areas.Admin.Controllers
         }
         public ActionResult ViewDetail(long id)
         {
+           
             var dao = new OrderDao();
             var model = dao.ViewDetail(id);
+            ViewBag.ViewOrderDetail = dao.OrderDetail(id);
             return View(model);
         }
     }

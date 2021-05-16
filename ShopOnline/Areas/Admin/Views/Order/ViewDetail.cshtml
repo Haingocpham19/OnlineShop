@@ -1,36 +1,82 @@
-﻿@model IEnumerable<Model.EF.OrderDetail>
+﻿@model IEnumerable<Model.ViewModel.OrderViewdetailModel>
 
 @{
     ViewBag.Title = "ViewDetail";
     Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+    var list = (Model.EF.Order)ViewBag.ViewOrderDetail;
 }
-<h2>Chi tiết đơn hàng</h2>
+<h2 style="text-align:center">Thông tin khách hàng</h2>
+<table class="table" style="border: 2px">
+    <tr>
+        <th>
+            Tên Khách hàng
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Email
+        </th>
+    </tr>
+   
+    <tr>
+        <td>
+            @list.ShipName
+        </td>
+        <td>
+            @list.ShipAddress
+        </td>
+        <td>
+            @list.ShipMobile
+        </td>
+        <td>
+            @list.ShipEmail
+        </td>
+    </tr>
 
+</table>
+<h2 style="text-align:center">Chi tiết đơn hàng</h2>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Quantity)
+            Tên mặt hàng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            Số lượng
         </th>
-        <th></th>
+        <th>
+            Giá
+        </th>
+        <th>
+            Số lượng có sẵn
+        </th>
+        <th>#</th>
     </tr>
 
-@*@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}*@
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.productName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.QuantityinStock)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) 
+            </td>
+        </tr>
+    }
 </table>
+<div style="text-align:right">
+    <p><b>Total :</b> @list.TotalPrice <span>đồng</span></p>
+</div>

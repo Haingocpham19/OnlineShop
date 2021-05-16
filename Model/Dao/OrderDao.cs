@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PagedList;
+using Model.ViewModel;
 
 namespace Model.Dao
 {
@@ -30,19 +31,28 @@ namespace Model.Dao
             }
             return model.OrderByDescending(x => x.CreateDate).ToPagedList(page, pageSize);
         }
-        public IEnumerable<OrderDetail> ViewDetail(long id)
+        public IEnumerable<OrderViewdetailModel> ViewDetail(long id)
         {
-            var result = from a in db.Orders join b in db.OrderDetails
-                         on a.ID equals b.OrderID
+            var dao = new Product();
+            var result = from a in db.Orders
+                         join b in db.OrderDetails on a.ID equals b.OrderID
+                         join c in db.Products on b.ProductID equals c.ID
                          where a.ID == id
-                         select new OrderDetail()
-                         {                     
+                         select new OrderViewdetailModel()
+                         {
+                             productName = c.Name,
                              OrderID = a.ID,
                              ProductID = b.ProductID,
                              Quantity = b.Quantity,
-                             Price = b.Price
+                             Price = b.Price,
+                             QuantityinStock = c.Quantity
                          };           
-            return result.OrderBy(x => x.ProductID); ;
+            return result.OrderBy(x => x.ProductID); 
         }
+        public Order OrderDetail(long id)
+        {
+            return db.Orders.Find(id);         
+        }
+        
     }
 }

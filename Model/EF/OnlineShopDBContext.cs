@@ -10,6 +10,7 @@ namespace Model.EF
         public OnlineShopDBContext()
             : base("name=OnlineShopDBContext")
         {
+
         }
 
         public virtual DbSet<About> Abouts { get; set; }

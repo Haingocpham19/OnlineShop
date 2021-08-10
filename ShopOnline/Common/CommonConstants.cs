@@ -9,5 +9,6 @@ namespace ShopOnline.Common
     {
         public static string USER_SESSION = "USER_SESSION";
         public static string CART_SEESION = "CartSession";
+        public static string CART_COOKIE = "CartInfo";
     }
 }

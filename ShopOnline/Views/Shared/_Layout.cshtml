@@ -25,7 +25,201 @@
     <link rel="stylesheet" href="/assets/client/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/assets/client/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/assets/client/css/style.css" type="text/css">
+    <style>
+        .extension_is_here_minimum {
+            position: fixed;
+            margin-top: 76vh;
+            width: 28vh;
+            height: 16vh;
+            border-radius: 20px;
+            border: 1px solid rgb(182, 182, 182);
+            background-color: rgb(240, 248, 239);
+            margin-left: 20px;
+            z-index: 9999;
+            display: none;
+        }
 
+            .extension_is_here_minimum .right_box {
+                margin-top: 36px;
+                margin-left: 12px;
+                height: auto;
+                width: 8vh;
+                cursor: pointer;
+            }
+
+                .extension_is_here_minimum .right_box img {
+                    width: 30px;
+                    height: auto;
+                }
+
+            .extension_is_here_minimum .left_box {
+                height: auto;
+                width: 20vh;
+                border-radius: 20px;
+                background-color: #addc67;
+                border: 1px solid rgba(232, 231, 245, 0.319);
+            }
+
+        .top_left_box {
+            margin-left: 4px;
+        }
+
+        .left_box .top_left_box img {
+            width: 30px;
+            height: auto;
+        }
+
+        .left_box .top_left_box span {
+            font-size: 12px;
+        }
+
+        .middle_left_box {
+            margin-left: 8px;
+        }
+
+            .middle_left_box img {
+                width: 20px;
+                height: auto;
+            }
+
+            .middle_left_box span {
+                font-size: 12px;
+            }
+
+        .left_box button {
+            border-radius: 15px;
+            margin-top: 12px;
+            margin-left: 12px;
+            width: 100px;
+            height: 32px;
+        }
+
+        .extension_is_here_maximum {
+            border-radius: 10px;
+            margin-left: 20px;
+            position: fixed;
+            margin-top: 32vh;
+            display:none; 
+            width: 20vw;
+            height: 40vh;
+            border: 1px solid rgb(193, 182, 182);
+            background-color: rgb(230, 238, 227);
+            z-index: 9999;
+        }
+
+        .maximum_top {
+            width: 20vw;
+            height: 8vh;
+            border-bottom: 1px solid rgb(182, 189, 180);
+            display: flex;
+        }
+
+        .maximum_top_left img {
+            margin-left: 20px;
+            margin-top: 2vh;
+            height: 4vh;
+            width: auto;
+        }
+
+        .maximum_top_left {
+            width: 60%;
+        }
+
+            .maximum_top_left span {
+                font-size: 16px;
+            }
+
+        .maximum_top_right {
+            width: 40%;
+        }
+
+            .maximum_top_right p {
+                font-size: 12px;
+                margin: 0px 0px 0px 0px;
+            }
+
+            .maximum_top_right span {
+                margin-top: 0px;
+                font-size: 12px;
+            }
+
+        .content_items {
+            border-radius: 5px;
+            border: 1px solid rgb(179, 179, 179);
+            padding: 10px;
+            width: 20vw;
+            height: 26vh;
+            background-color: rgb(240, 240, 240);
+        }
+
+            .content_items tbody img {
+                margin-left: 4px;
+                height: 48px;
+                width: 48px;
+            }
+
+        .info_product {
+            width: 10vw;
+            margin-left: 8px;
+            display: block;
+        }
+
+        .content_items h3 {
+            font-size: 16px;
+        }
+
+        .info_product span {
+            font-size: 12px;
+        }
+
+        .quantity_table {
+            width: 4vw;
+            height: 4vh;
+        }
+
+            .quantity_table input {
+                padding-top: 0px;
+                width: 32px;
+            }
+
+        tr {
+            border-bottom: 1px solid rgb(182, 180, 180);
+        }
+
+        .info_checkout {
+            width: 20vw;
+            height: 6vh;
+            display: flex;
+            margin-top: 8px;
+        }
+
+            .info_checkout p {
+                font-size: 16px;
+            }
+
+            .info_checkout span {
+                margin-left: 20px;
+            }
+            .info_checkout a{
+                margin-left:40px;
+            }   
+            .info_checkout button {
+                margin-left:40px;
+                font-size: 12px;
+                width: 80px;
+                height: 32px;
+            }
+        iframe {
+            position: fixed;
+            height: 32vh;
+            width: 32vw;
+            border: 1px solid rgb(193, 193, 193);
+            display: block;
+            z-index: 99999;
+            /* display:none; */
+        }
+    </style>
+   
 </head>
 
 <body>
@@ -33,6 +227,73 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
+    <div class="extension_is_here_minimum">
+        <div class="left_box">
+            <div class="top_left_box">
+                <img src="~/assets/client/img/extension/shiquocte.png" />
+                <span>Shipquocte.com</span>
+            </div>
+            <div class="middle_left_box">
+                <img src="~/assets/client/img/extension/shopping-bag.svg" />
+                <span>0 Sản phẩm</span>
+            </div>
+            <button id="idToggle">0</button>
+        </div>
+        <div class="right_box">
+            <img src="~/assets/client/img/extension/shopping-cart.svg" />
+        </div>
+    </div>
+    <div class="extension_is_here_maximum">
+        <div class="maximum_top">
+            <div class="maximum_top_left">
+                <img src="~/assets/client/img/extension/shiquocte.png" />
+                <span>Shipquocte</span>
+            </div>
+            <div class="maximum_top_right">
+                <p>Bạn chưa đăng nhập?</p>
+                <span><a href="#">Đăng nhập ngay</a></span>
+            </div>
+        </div>
+        <div class="maximum_content">
+            <div class="content_items">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*<tr>
+                            <th>
+                                <img src="img/product/product-1.jpg">
+                            </th>
+                            <th>
+                                <div class="info_product">
+                                    <h3>Crab Pool Security</h3>
+                                    <span>$50</span>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="quantity_table">
+                                    <input value="1" type="text">
+                                </div>
+                            </th>
+                        </tr>*@
+                    </tbody>
+                </table>
+            </div>
+            <div class="info_checkout">
+                <p>Tổng cộng</p>
+                <span>0</span>
+                <a href="/Cart/Payment"id="btnPayment"><button>Thanh toán</button></a>              
+            </div>
+        </div>
+    </div>
+    @*<div class="iframe_is_here">
+
+        </div>*@
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
@@ -61,7 +322,7 @@
     </header>
     <!-- Header Section End -->
     <!-- Hero Section Begin -->
-    <section class="hero">
+    <section class="hero hero-normal">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -106,6 +367,19 @@
     <script src="/assets/client/js/bootstrap.min.js"></script>
 
     @RenderSection("jsFooter", required: false)
+    <script>
+        document.querySelector("#idToggle").addEventListener("click", function () {
+            var x = document.querySelector(".extension_is_here_maximum");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        });
+        document.querySelector(".right_box").addEventListener("click", function () {
+            location.replace("https://localhost:44359/Cart/Payment");
+        });
+    </script>
 </body>
 
 </html>

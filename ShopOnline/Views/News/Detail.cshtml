@@ -15,7 +15,14 @@
                         <h2>@Model.Name</h2> 
                         <ul>
                             <li>@Model.CreateBy</li>
-                            <li>@Model.ModifiedDate</li>
+                            @if (Model.ModifiedDate != null)
+                            {
+                                <li>@Model.ModifiedDate</li>
+                            }
+                            else
+                            {
+                                <li>@Model.CreateDate</li>
+                            }
                             <li>8 Comments</li>
                         </ul>
                     </div>

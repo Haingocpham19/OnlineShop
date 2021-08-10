@@ -55,9 +55,8 @@ namespace ShopOnline.Controllers
             else
             {
                 ModelState.AddModelError("", "Đăng nhập không đúng");
-
             }
-            return View("/");
+            return RedirectToAction("Login","User");
         
         }
         [HttpGet]

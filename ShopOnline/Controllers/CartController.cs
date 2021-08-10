@@ -21,8 +21,9 @@ namespace ShopOnline.Controllers
             if (cart != null)
             {
                 list = (List<CartItem>)cart;
-
+                ViewBag.Stuff = list;
             }
+            
             return View(list);
         }
         public JsonResult DeleteAll()
@@ -97,10 +98,13 @@ namespace ShopOnline.Controllers
                 var item = new CartItem();
                 item.Product = product;
                 item.Quantity = quantity;
-                var list = new List<CartItem>();
-                list.Add(item);
+                var list = new List<CartItem>
+                {
+                    item
+                };
                 //assign into session
                 Session[CART_SEESION] = list;
+             
             }
             return RedirectToAction("Index");
         }
@@ -155,8 +159,6 @@ namespace ShopOnline.Controllers
                 ModelState.AddModelError("", "Order chưa thành công.");
                 return RedirectToAction("Payment");
             }
-
-              
 
         }
         public ActionResult Success()

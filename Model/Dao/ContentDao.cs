@@ -25,7 +25,7 @@ namespace Model.Dao
             return model.OrderByDescending(x => x.CreateDate).ToPagedList(page, pageSize);
         }
         public long Insert(Content content)
-        {
+        {           
             content.CreateDate = DateTime.Now;
             db.Contents.Add(content);
             db.SaveChanges();

@@ -42,7 +42,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MetaTitle, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MetaTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.MetaTitle, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MetaTitle, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -107,7 +107,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CategoryID , null , new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.CategoryID , new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -171,7 +171,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ViewCount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ViewCount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DisplayFor(model => model.ViewCount, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ViewCount, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -197,3 +197,48 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script>
+function Submit() {
+    $("form").submit(function (e) {
+        $("#validateForm").validate({
+            rules: {
+                msv: {
+                    required: true,
+                    maxlength: 4
+                },
+                name: "required",
+                birthday: "required",
+                gt: "required",
+                address: "required"
+            },
+            messages: {
+                msv: {
+                    required: "Vui lòng nhập msv",
+                    maxlength: "Mã sinh viên là ít hơn 4 ký tự"
+                },
+                name: "Vui lòng nhập tên",
+                birthday: "Bạn chưa nhập ngày sinh",
+                gt: "Chưa nhập giới tính",
+                address: "Chưa nhập địa chỉ"
+            }
+        });
+        if ($(this).valid()) {
+
+            $.ajax({
+                url: "",
+                method: "POST",
+                data: JSON.stringify(student),
+                contentType: "application/json",
+                dataType: "Json"
+            }).done(function (res) {
+
+            }).fail(function (res) {
+
+            })
+        } else {
+            $(".error").find("label").remove();
+        }
+        e.preventDefault();
+    });
+}
+</script>

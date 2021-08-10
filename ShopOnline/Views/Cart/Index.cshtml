@@ -4,6 +4,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var totalPrice = 0;
     int totalAllCheckout = 0;
+
+    string stuffIdProduct = "idProduct:";
+    string stuffQuantity = "Quantity:";
+
+    foreach (var item in Model)
+    {      
+            stuffIdProduct += item.Product.ID.ToString()+"_";
+            stuffQuantity += item.Quantity.ToString()+"_";       
+    }
+
+    //test save data into cookie
+
+    HttpCookie myCookie = new HttpCookie("CartCookie");
+    DateTime now = DateTime.Now;
+
+    // Set the cookie value.
+    //myCookie.Value = now.ToString();
+    myCookie.Value = stuffIdProduct+"-"+stuffQuantity;
+
+    // Set the cookie expiration date.
+    myCookie.Expires = now.AddMinutes(100); // For a cookie to effectively 10 minutes expire
+
+    // Add the cookie.
+    Response.Cookies.Add(myCookie);
 }
 @section jsFooter{
     <script src="~/assets/client/js/controller/cartControl.js"></script>
@@ -17,7 +41,7 @@
                     <h2>Shopping Cart</h2>
                     <div class="breadcrumb__option">
                         <a href="/">Home</a>
-                        <span>Shopping Cart</span>
+                        <span>Shopping Cart+@stuffIdProduct</span>
                     </div>
                 </div>
             </div>

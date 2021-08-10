@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -10,11 +10,14 @@ namespace Model.EF
     public partial class Product
     {
         public long ID { get; set; }
-
+        [Required(ErrorMessage = "Chưa nhập tên")]
+        [Display(Name ="Tên sản phẩm")]
         [StringLength(250)]
         public string Name { get; set; }
-
         [StringLength(10)]
+        [MaxLength(6)]
+        [Required(ErrorMessage = "Chưa nhập tên")]
+        [Display(Name = "Mã sản phẩm")]
         public string Code { get; set; }
 
         [StringLength(250)]
@@ -28,13 +31,10 @@ namespace Model.EF
 
         [Column(TypeName = "xml")]
         public string MoreImages { get; set; }
-
         public decimal? Price { get; set; }
 
         public decimal? PromotionPrice { get; set; }
-
         public bool? IncludedVAT { get; set; }
-
         public int? Quantity { get; set; }
 
         public long? CategoryID { get; set; }
@@ -60,7 +60,7 @@ namespace Model.EF
         [StringLength(250)]
         public string MetaDescriptions { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
         public DateTime? TopHot { get; set; }
 

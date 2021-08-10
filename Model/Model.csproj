@@ -88,7 +88,7 @@
     <Compile Include="EF\Tag.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="EF\UserGroup.cs" />
-    <Compile Include="ViewModel\OrderViewdetailModel.cs" />
+    <Compile Include="ModelExtra\OrderViewdetailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

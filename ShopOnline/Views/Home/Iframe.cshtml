@@ -1,0 +1,190 @@
+﻿
+@{
+    ViewBag.Title = "Iframe";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <style type="text/css">
+        .rabbit_frame {
+            margin-top: 60vh;
+            position: fixed;
+            width: 40vh;
+            height: 40vh;
+            border: 1px solid rgb(193, 193, 193);
+            display: block;
+            cursor: pointer;
+            /* display:none; */
+            z-index: 9999;
+        }
+
+        .maximum {
+            height: 100%;
+            width: 100%;
+            display: flex;
+        }
+
+        .task_bar {
+            width: 36vw;
+            height: 100vh;
+        }
+
+            .task_bar .task_bar_item {
+                height: 20vh;
+                width: 36vw;
+                border-right: 1px solid rgb(140, 140, 140);
+                background-color: rgb(174, 173, 173);
+                border-bottom: 1px solid rgb(140, 140, 140);
+                justify-content: center;
+                cursor: pointer;
+            }
+
+        .task_bar_item img {
+            width: 32px;
+            height: 32px;
+            margin: 5px 5px 10px 20px;
+        }
+
+        .task_bar span {
+            margin: 10px 0px 10px 10px;
+            font-size: 16px;
+        }
+
+        .article {
+            width: 64vw;
+            height: 100vh;
+        }
+
+            .article .article_header {
+                width: 64vw;
+                height: 15vh;
+                background-color: rgb(220, 220, 220);
+                display: flex;
+                border-bottom: 1px solid rgb(171, 169, 169);
+            }
+
+        .article_header img:first-child {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .article_header p {
+            font-size: 16px;
+            margin: auto;
+        }
+
+        .article_header img:last-child {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .article .article_content {
+            background-color: rgb(220, 220, 220);
+            width: 64vw;
+            height: 85vh;
+        }
+
+        .article_content input {
+            margin-top: 10px;
+            margin-left: 20px;
+            border-radius: 5px;
+            width: 240px;
+        }
+
+        .article_content button {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="rabbit_frame">
+        <img src="img/rabbit-logo.jpg" height="100%" width="100%" id="idIcon">
+    </div> -->
+    <div class="maximum">
+        <div class="task_bar">
+            <div class="task_bar_item">
+                <img src="~/assets/client/img/iframe/like.png" />
+                <span>Rate</span>
+            </div>
+            <div class="task_bar_item">
+                <img src="~/assets/client/img/iframe/exchange.png" />
+                <span>Price Change</span>
+            </div>
+            <div class="task_bar_item">
+                <img src="~/assets/client/img/iframe/star.png" />
+                <span>Forex</span>
+            </div>
+            <div class="task_bar_item">
+                <img src="~/assets/client/img/iframe/rating.png" />
+                <span>Feedback</span>
+            </div>
+            <div class="task_bar_item">
+                <img src="~/assets/client/img/iframe/tracking.png" />
+                <span>Tracking</span>
+            </div>
+        </div>
+        <div class="article">
+            <div class="article_header">
+                <img src="~/assets/client/img/iframe/settings.png" id="idSetting" />
+                <p>Tracking</p>
+                <img src="~/assets/client/img/iframe/cancel.png" id="idClose" />
+            </div>
+            <div class="article_content">
+                <input id="idTracking">
+                <button id="addTrackingNumber">Add</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector("#addTrackingNumber").addEventListener("click",async function () {
+            let idTracking = document.querySelector("#idTracking").value;
+
+            const urlApi = "https://localhost:5010/api/tracking/" + idTracking;
+
+            let trackingNumber;
+            let status;
+            let weight;
+            let retailer;
+            let totalPrice;
+            const fetchApi = await fetch(urlApi);
+            const data = await fetchApi.json();
+            let innerInfoTracking = "";
+            let innerText = "";
+            data.forEach(element => {
+                trackingNumber = element.trackingNo;
+                weight = element.weight;
+                status = element.status;
+                retailer = element.retailer;
+                totalPrice = element.totalPrice;
+
+                innerText += ` <div class="item">
+                        <p>${element.productName}</p>
+                        <span>Quantity: ${element.quantity}</span>
+                        <span>Price: ${element.price}</span>
+                        </div>`
+            });
+
+            innerInfoTracking = `<p>Tracking Number: ${trackingNumber}   Total Price: ${totalPrice}đ</p>
+                    <span>
+                        Retailer: ${retailer}
+                    </span>
+                    <span>
+                        Status: ${status}
+                    </span>
+                    <span>Weight: ${weight}g</span>`;
+
+            document.querySelector(".article_content").innerHTML = innerInfoTracking;
+        });
+    </script>
+</body>
+</html>
+
